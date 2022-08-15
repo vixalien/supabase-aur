@@ -1,4 +1,4 @@
-sudo apt install git ninja-build libarchive-dev bsdtar
+sudo apt install git ninja-build libarchive-dev libarchive13 libarchive-tools cmake
 
 sudo pip3 install  meson
 
