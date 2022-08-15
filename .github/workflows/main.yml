@@ -7,8 +7,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Install Archlinux
-      run: curl -L https://github.com/zaoqi/github-actions-archlinux/raw/master/install.sh | sh
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
 
     - name: Prepare build scripts
       run: sudo chmod +x build.sh && sudo chmod +x build-pkgbuild.sh
