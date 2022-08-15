@@ -2,7 +2,7 @@ TAG_NAME=$(curl https://api.github.com/repos/supabase/cli/releases/latest \
 | grep tag_name \
 | cut -d : -f 2,3 \
 | tr -d \" \
-| tail -c +2 \
+| tail -c +3 \
 | head -c -2)
 
 echo $TAG_NAME
@@ -31,7 +31,7 @@ cat << \EOF >> PKGBUILD
 source=("https://github.com/supabase/cli/releases/download/v$pkgver/supabase_${pkgver}_linux_amd64.tar.gz")
 EOF
 
-cat << EOF > PKGBUILD
+cat << EOF >> PKGBUILD
 sha256sums=("$SHASUM")
 EOF
 
@@ -42,5 +42,4 @@ package() {
     install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
     install -Dm644 README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
 }
-
 EOF

@@ -8,7 +8,11 @@ jobs:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
 
-    - run: build.sh
+    - run: Prepare build scripts
+    - run: sudo chmod +x build.sh && sudo chmod +x build-pkgbuild.sh
+
+    - run: Run build
+    - run: ./build.sh
 
     - name: Copy data to downloads folder
       run: |
@@ -17,7 +21,7 @@ jobs:
         cp supabase_*_linux_amd64.tar.gz artifacts
         cp supabase-bin-*-x86_64.pkg.tar.zst artifacts
 
-    - name: Add data
+    - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
         name: artifacts
