@@ -10,7 +10,11 @@ meson build
 cd build
 ninja
 sudo ninja install
-cd ..
+cd ../..
+
+echo we are at
+pwd
+ls
 
 source build-pkgbuild.sh
 
