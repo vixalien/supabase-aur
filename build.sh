@@ -12,10 +12,6 @@ ninja
 sudo ninja install
 cd ../..
 
-echo we are at
-pwd
-ls
-
 source build-pkgbuild.sh
 
 makepkg --conf ./makepkg.conf
