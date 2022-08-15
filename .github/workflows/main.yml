@@ -1,0 +1,24 @@
+name: CI
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+
+    - run: build.sh
+
+    - name: Copy data to downloads folder
+      run: |
+        mkdir artifacts -p
+        cp PKGBUILD artifacts
+        cp supabase_*_linux_amd64.tar.gz artifacts
+        cp supabase-bin-*-x86_64.pkg.tar.zst artifacts
+
+    - name: Add data
+      uses: actions/upload-artifact@v3
+      with:
+        name: artifacts
+        path: artifacts

@@ -1,0 +1,9 @@
+*
+!.gitignore
+!.github/workflows/main.yml
+!PKGBUILD
+!build.sh
+!build-pkgbuild.sh
+!makepkg.conf
+!.SRCINFO
+!*/
